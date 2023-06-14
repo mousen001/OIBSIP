@@ -3,31 +3,34 @@ package com.oasis.infobyte;
 import java.util.*;
 
 class Game{
-	public int randomNum;
-	public int guess;
-	public int noOfGuesses = 0;
 	
-	public void setNoOfGuesses(int noOfGuesses) {
-		this.noOfGuesses = noOfGuesses;
+	private int noGuesses = 0;
+	
+	public void setNoGuesses(int noGuesses) {
+		this.noGuesses = noGuesses;
 	}
 	
-	public int getNoOfGuesses() {
-	      return noOfGuesses;
+	public int getNoGuesses() {
+	      return noGuesses;
 	}
 	
-	public boolean IsCorrectNumber(int randomNum, int guessNum) {
-		noOfGuesses++;
+	public boolean isCorrectNumber(int randNo, int guessNo) {
+		noGuesses++;
 	    
-		if(guessNum == randomNum ) {
-			System.out.println("\nCONGRATULATIONS! YOU GUESSED THE NUMBER, IT WAS "+guessNum+"."); 
-			System.out.println("YOU TOOK TOTAL "+noOfGuesses+ " ATTEMPTS TO GUESS.");
+		if(guessNo<1 || guessNo>100) {
+			System.out.println("Wrong Guess! Your guessing number should be within 1 to 100.");
+		}
+		else if(guessNo == randNo ) {
+			System.out.println("...............................................................");
+			System.out.println("\nCongratulations! You guessed the number successfully, it was "+guessNo+"."); 
+			System.out.println("Your Score is : "+noGuesses);
 		    return true;
 		}
-		else if( guessNum < randomNum) {
-			System.out.println("GUESS HIGHER NUMBER PLEASE!");
+		else if( guessNo < randNo) {
+			System.out.println("Guess Higher Number Please!");
 		}
-		else if(guessNum > randomNum) {
-			System.out.println("GUESS LOWER NUMBER PLEASE!");
+		else if(guessNo > randNo) {
+			System.out.println("Guess Lower Number Please!");
 		}
 		return false;
 	}
@@ -37,30 +40,28 @@ class Game{
 public class NumberGuessingGame {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 
-        System.out.println("<--- WELCOME TO THE NUMBER GUESSING GAME! --->\n");
+        System.out.println("           Welcome to the Number Guessing Game!     \n");
 		Random rand = new Random();
-        int randomNum = rand.nextInt(1,100);
+        int randNo = rand.nextInt(1,100);
 
-        System.out.println("RULES OF THIS GAME");
-        System.out.println("------------------");
-        System.out.println("I GENERATED A NUMBER BETWEEEN 1 TO 100.");
-        System.out.println("YOUR TASK IS GUESS THE NUMBER AT MINIMAL ATTEMPTS...\n");
+        System.out.println("Rules for this game:");
+        System.out.println("===================");
+        System.out.println("We generated a number between 1 to 100.");
+        System.out.println("Now your task is to guess that number at minimum attempts.\n");
         
 		Game game = new Game();
 		
 		boolean flag = false;
 	    while(!flag) {
-	    	System.out.print("GUESS THE NUMBER : ");
-			int guessNum = sc.nextInt();
+	    	System.out.print("Guess the number : ");
+			int guessNo = sc.nextInt();
 			
-            flag = game.IsCorrectNumber(randomNum, guessNum);
+            flag = game.isCorrectNumber(randNo, guessNo);
 	    } 
 		
-		if(sc!=null) {
-			sc.close();
-		}
-	}  
+		sc.close();
+	}
+    
 }
