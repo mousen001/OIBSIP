@@ -13,13 +13,13 @@ public class Bank
         this.users = new ArrayList<>();
         this.currentUser = null;
 
-        users.add(new User("101", "1111", "SOURAV", "DEY", 100000.0));
-        users.add(new User("102", "2222", "SUCHISMITA", "SEN", 100000.0));
-        users.add(new User("103", "3333", "SAUMYO", "DAS", 100000.0));
-        users.add(new User("104", "4444", "TWINKEL", "MANNA", 100000.0));
-        users.add(new User("105", "5555", "SOURAYAN", "KUNDU", 100000.0));
-        users.add(new User("106", "6666", "SILKY", "SINGH", 100000.0));
-        users.add(new User("107", "7777", "SAYAN", "DUTTA ROY", 100000.0));
+        users.add(new User("1001", "1111", "Mou", "Sen", 100000.0));
+        users.add(new User("1002", "2222", "Rose", "Manna", 100000.0));
+        users.add(new User("1003", "3333", "Bittu", "Das", 100000.0));
+        users.add(new User("1004", "4444", "Rayan", "Kundu", 100000.0));
+        users.add(new User("1005", "5555", "Nil", "Dey", 100000.0));
+        users.add(new User("1006", "6666", "Silky", "Singh", 100000.0));
+        users.add(new User("1007", "7777", "S.D.", "Roy", 100000.0));
 
     }
 
