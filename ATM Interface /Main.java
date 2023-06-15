@@ -9,7 +9,7 @@ public class Main
     {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("<--- WELCOME TO XYZ BANK ATM SERVICE --->\n");
+        System.out.println("		Welcome to SBI Bank ATM Service 		\n");
 
         ATM atm = new ATM();
 
@@ -20,13 +20,13 @@ public class Main
                 while (true) 
                 {
 
-                    System.out.println("1. VIEW TRANSACTION HISTORY");
-                    System.out.println("2. WITHDRAW");
-                    System.out.println("3. DEPOSIT");
-                    System.out.println("4. TRANSFER");
-                    System.out.println("5. CHECK BALANCE");
-                    System.out.println("6. QUIT");
-                    System.out.print("ENTER YOUR CHOICE : ");
+                    System.out.println("1. View Transaction History");
+                    System.out.println("2. Withdraw");
+                    System.out.println("3. Deposit");
+                    System.out.println("4. Transfer Money");
+                    System.out.println("5. Check Balance");
+                    System.out.println("6. Quit");
+                    System.out.print("Enter your choice: ");
 
                     int choice = scanner.nextInt();
 
@@ -48,17 +48,17 @@ public class Main
                             atm.CheckBalance();
                             break;
                         case 6:
-                            System.out.println("\nTHANK YOU FOR USING ATM SERVICE, VISIT AGAIN ! ");
+                            System.out.println("\nThank You, Visit Again ! ");
                             return;
                         default:
-                            System.out.println("WRONG INPUT, PLEASE ENTER A VALID INPUT");
+                            System.out.println("Please enter a valid input.");
                             break;
                     }
                 }
             }
             else 
             {
-                System.out.println("INVALID USER ID or USER PIN, PLEASE TRY AGAIN WITH CORRECT DETAILS");
+                System.out.println("Invalid User ID or User PIN! Please enter correct details.");
             }
             scanner.close();
         }
