@@ -15,9 +15,9 @@ public class ATM
 
     public boolean login() 
     {
-        System.out.print("USER ID: ");
+        System.out.print("User ID: ");
         String userID = scanner.nextLine();
-        System.out.print("USER PIN: ");
+        System.out.print("User PIN: ");
         String userPIN = scanner.nextLine();
         return bank.authenticateUser(userID, userPIN);
     }
@@ -25,7 +25,7 @@ public class ATM
     public void TransactionHistory() 
     {
         User currentUser = bank.getCurrentUser();
-        System.out.println("TRANSACTION HISTORY OF " + currentUser.getFullName() + ":");
+        System.out.println("Transaction History of " + currentUser.getFullName() + ":");
         for (String transaction : currentUser.getTransactionHistory()) 
         {
             System.out.println(transaction);
@@ -35,27 +35,27 @@ public class ATM
     public void Withdraw() 
     {
         User currentUser = bank.getCurrentUser();
-        System.out.print("ENTER THE AMOUNT YOU WANT TO WITHDRAW : ");
+        System.out.print("Enter the amount you want to withdraw : ");
         double amount = scanner.nextDouble();
         if (currentUser.withdraw(amount)) 
         {
-            System.out.println("AMOUNT "+amount+" SUCESFULLY WITHDREWL FROM YOUR ACCOUNT");
-            System.out.println("CURRENT BALANCE : RS." + String.format("%.2f", currentUser.getAccountBalance()));
+            System.out.println("Rs. "+amount+" successfully withdrawal from your account.");
+            System.out.println("Current Balance is : Rs." + String.format("%.2f", currentUser.getAccountBalance()));
         } 
         else 
         {
-            System.out.println("INSUFFICIENT AMMOUNT !");
+            System.out.println("Insufficient Amount !");
         }
     }
 
     public void Deposit() 
     {
         User currentUser = bank.getCurrentUser();
-        System.out.print("ENTER THE AMOUNT YOU WANT TO DEPOSIT : ");
+        System.out.print("Enter the amount you want to deposit : ");
         double amount = scanner.nextDouble();
         currentUser.deposit(amount);
-        System.out.println("AMOUNT "+amount+" SUCESFULLY DEPOSITED TO YOUR ACCOUNT");
-        System.out.println("CURRENT BALANCE : RS." + String.format("%.2f", currentUser.getAccountBalance()));
+        System.out.println("Rs. "+amount+" successfully deposited to your account.");
+        System.out.println("Current balance : Rs." + String.format("%.2f", currentUser.getAccountBalance()));
     }
 
     public void Transfer() 
@@ -63,32 +63,32 @@ public class ATM
 
         User currentUser = bank.getCurrentUser();
 
-        System.out.println("ENTER THE RECIPENT ID : ");
-        String recipientID = scanner.nextLine();
+        System.out.print("Enter the Recipent ID : ");
+        String recipientID = scanner.next();
         User recipient = bank.getUserByID(recipientID);
         if (recipient == null) 
         {
-            System.out.println("INVALID RECIPENT ID !");
+            System.out.println("Invalid Recipent ID !");
             return;
         }
-        System.out.println("ENTER THE AMOUNT YOU WANT TO TRANSFER : ");
+        System.out.print("Enter the amount you want to transfer : ");
         double amount = scanner.nextDouble();
 
         if (currentUser.transfer(amount, recipient)) 
         {
-            System.out.println("AMOUNT "+amount+" SUCESSFULLY TRANSFERED TO "+recipient.getFirstName());
-            System.out.println("CURRENT BALANCE : RS." + String.format("%.2f", currentUser.getAccountBalance()));
+            System.out.println("Rs. "+amount+" sucessfully transferred to "+recipient.getFirstName());
+            System.out.println("Current balance : Rs." + String.format("%.2f", currentUser.getAccountBalance()));
         } 
         
         else 
         {
-            System.out.println("INSUFFICIENT AMMOUNT !");
+            System.out.println("Insufficient Amount !");
         }
 
     }
     public void CheckBalance() 
     {
         User currentUser = bank.getCurrentUser();
-        System.out.println("CURRENT BALANCE : RS." + String.format("%.2f", currentUser.getAccountBalance())); 
+        System.out.println("Current balance : Rs." + String.format("%.2f", currentUser.getAccountBalance())); 
     }
 }
