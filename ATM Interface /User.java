@@ -36,7 +36,7 @@ public class User
         else 
         {
             accountBalance -= amount;
-            String transaction = "WITHDRAWAL AMMOUNT : -RS." + amount + " CURRENT BALANCE : RS." + accountBalance;
+            String transaction = "Withdrawal Amount : Rs." + amount + " Current Balance : Rs." + accountBalance;
             transactionHistory.add(transaction);
             return true;
         }
@@ -45,7 +45,7 @@ public class User
     public void deposit(double amount) 
     {
         accountBalance += amount;
-        String transaction = "DEPOSITED AMMOUNT : +RS." + amount + " CURRENT BALANCE : RS." + accountBalance;
+        String transaction = "Deposited Amount : Rs." + amount + " Current Balance : Rs." + accountBalance;
         transactionHistory.add(transaction);
     }
 
@@ -55,7 +55,7 @@ public class User
         {
             accountBalance -= amount;
             recipient.deposit(amount);
-            transactionHistory.add("TRANSFER AMOUNT RS." + amount + " TO " + recipient.getFirstName());
+            transactionHistory.add("Transfer Amount Rs." + amount + " to " + recipient.getFirstName());
             return true;
         } 
         else 
